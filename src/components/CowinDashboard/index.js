@@ -26,6 +26,8 @@ class CowinDashboard extends Component {
     console.log(update)
     if (response.ok) {
       this.setState({list: update, isLoading: 'SUCCESS'})
+    } else {
+      this.setState({isLoading: 'FAILURE'})
     }
   }
 
@@ -83,6 +85,8 @@ class CowinDashboard extends Component {
         return this.renderLoader()
       case 'SUCCESS':
         return this.renderResult()
+      case 'FAILURE':
+        return this.renderFailure()
       default:
         return this.renderFailure()
     }
